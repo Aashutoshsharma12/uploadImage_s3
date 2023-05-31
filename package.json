@@ -13,6 +13,7 @@
   "dependencies": {
     "apollo-server": "^3.12.0",
     "apollo-server-express": "^3.12.0",
+    "aws-sdk": "^2.1387.0",
     "bcrypt": "^5.1.0",
     "cloudinary": "^1.37.0",
     "cors": "^2.8.5",
