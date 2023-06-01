@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const Router = require('express')
 const fileUpload = require('express-fileupload')
@@ -14,11 +15,12 @@ const AWS = require('aws-sdk');
 const BucketName = "graph-imageupload"
 const region = 'ap-south-1'
 // configure it with your AWS credentials:
-AWS.config.update({ region: 'ap-south-1' });
+console.log(process.env.REGION)
+AWS.config.update({ region: process.env.REGION});
 var s3 = new AWS.S3({
     credentials: {
-        accessKeyId: 'AKIARXOWZL5DMJY4C6HJ',
-        secretAccessKey: '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'
+        accessKeyId: process.env.ACCESSKEY_ID,
+        secretAccessKey: process.env.SECRETACCESS_KEY
     }
 });
 
@@ -108,6 +110,6 @@ app.post('/pre_signedUrl', (req, res) => {
     }
 }
 )
-app.listen(5009, () => {
-    console.log('Server is running on 5009 port')
+app.listen(5002, () => {
+    console.log('Server is running on 5002 port')
 })
